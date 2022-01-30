@@ -1,32 +1,13 @@
-public class Getraenk {
-    // Attribute der Getraenke-Klasse
-    String name;
-    float preis;
-    int bestand;
-    
-    // Erstellung des Konstruktors
+public class Getraenk extends Artikel {
+    // Attribute wurden vererbt
+
+    // Konstruktoren
+    // super() ruft den Konstruktor der Oberklasse auf
     public Getraenk() {
-    // Attribute des Konstruktors
-    
+        super();
     }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    public String getName() {
-        return name;
+    public Getraenk(String name, double preis, int bestand) {
+        super(name, preis, bestand);
     }
 
-    public void bestandErhoehen(int wert) {
-        bestand = bestand + wert;
-    }
-
-    public void bestandVerringern(int wert) {
-        bestand = bestand - wert;
-    }
-
-    public void verkaufen(int anzahl) {
-        String ausgabetext = "Es wurden getraenke verkauft";
-
-    }
 }
