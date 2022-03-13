@@ -6,8 +6,8 @@ public class Getraenk extends Artikel {
     public Getraenk() {
         super();
     }
-    public Getraenk(String name, double preis, int bestand) {
-        super(name, preis, bestand);
+    public Getraenk(int id, String name, double preis, int bestand) {
+        super(id, name, preis, bestand);
     }
 
 }

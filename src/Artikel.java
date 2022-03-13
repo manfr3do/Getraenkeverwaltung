@@ -1,5 +1,6 @@
 public class Artikel {
     // Attribute
+    protected int id;
     protected String name;
     protected double preis;
     protected int bestand;
@@ -8,13 +9,17 @@ public class Artikel {
     public Artikel() {
 
     }
-    public Artikel(String name, double preis, int bestand) {
+    public Artikel(int id, String name, double preis, int bestand) {
+        this.id = id;
         this.name = name;
         this.preis = preis;
         this.bestand = bestand;
     }
 
     // Getter & Setter
+    public void setId(int id) {
+        this.id = id;
+    }
     public void setName(String name) {
         this.name = name;
     }
@@ -23,6 +28,10 @@ public class Artikel {
     }
     public void setBestand(int bestand) {
         this.bestand = bestand;
+    }
+
+    public int getId() {
+        return id;
     }
     public String getName() {
         return name;
