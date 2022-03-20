@@ -1,83 +1,164 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
-public class Getraenkeverwaltung {
+
+public class Getraenkeverwaltung extends Firma {
+    
+    public static Getraenk getraenk1 = new Getraenk(1, "Pepsi Maxx Original", 0.99, 500);
+    public static Getraenk getraenk2 = new Getraenk(2, "Pepsi Maxx Lemon", 2.00, 100);
+    public static Getraenk getraenk3 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
+    public static Getraenk getraenk4 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
+    public static Getraenk getraenk5 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
+    public static Getraenk getraenk6 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
+    public static Getraenk getraenk7 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
+    public static Getraenk getraenk8 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
+    public static Getraenk getraenk9 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
+    public static Getraenk getraenk10 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
     public static void main(String[] args) throws Exception {
+        new Getraenkeverwaltung().buildUi();
 
-        Scanner sc = new Scanner(System.in);
-
-
-
-        // Instanz eines Objekts mit parametrisierten Konstruktor erstellen
-        Getraenk getraenk1 = new Getraenk(1, "Pepsi Maxx Original", 0.99, 500);
-        Getraenk getraenk2 = new Getraenk(2, "Pepsi Maxx Lemon", 2.00, 100);
-        Getraenk getraenk3 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
-        Snack snack1 = new Snack(4, "Knoppers", 0.99, 50, 22);
-        Snack snack2 = new Snack(5, "Pickup", 0.99, 50, 22);
-        Snack snack3 = new Snack(6, "Dextro Energy", 0.99, 50, 22);
-
-
+        /*
+        // Legacy code (before GUI)
         ArrayList<Getraenk> getraenkeListe = new ArrayList<Getraenk>();
         getraenkeListe.add(getraenk1);
         getraenkeListe.add(getraenk2);
         getraenkeListe.add(getraenk3);
 
-        for (Getraenk g : getraenkeListe)
-        {
-            System.out.print("Artikel: " + g.getName() + "\n");
-        }
-        System.out.println();
         ArrayList<Snack> snackListe = new ArrayList<Snack>();
         snackListe.add(snack1);
         snackListe.add(snack2);
         snackListe.add(snack3);
 
-        for (Snack s : snackListe)
+        Scanner sc = new Scanner(System.in);
+        
+        // Instanz eines Objekts mit parametrisierten Konstruktor erstellen
+        // Getraenk getraenk1 = new Getraenk(1, "Pepsi Maxx Original", 0.99, 500);
+        // Getraenk getraenk2 = new Getraenk(2, "Pepsi Maxx Lemon", 2.00, 100);
+        // Getraenk getraenk3 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
+        // Snack snack1 = new Snack(4, "Knoppers", 0.99, 50, 22);
+        // Snack snack2 = new Snack(5, "Pickup", 0.99, 50, 22);
+        // Snack snack3 = new Snack(6, "Dextro Energy", 0.99, 50, 22);
+        
+        // ArrayList<Getraenk> getraenkeListe = new ArrayList<Getraenk>();
+        // getraenkeListe.add(getraenk1);
+        // getraenkeListe.add(getraenk2);
+        // getraenkeListe.add(getraenk3);
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" + Firma.impressum() + "\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        // Getraenkeliste ausgeben
+        for (Getraenk g : getraenkeListe)
         {
-            System.out.print("Artikel: " + s.getName() + "\n");
+            System.out.print("Artikel: " + g.getName() + "\n");
         }
-
-
-        // Bestand ausgeben
-        // System.out.println("Informationen getraenk1: ");
-        // System.out.println("Name: " + getraenk1.name + ", " + "Preis: " + getraenk1.preis + ", " + "Bestand: " + getraenk1.bestand);
-        // System.out.println("Informationen getraenk2: ");
-        // System.out.println("Name: " + getraenk2.name + ", " + "Preis: " + getraenk2.preis + ", " + "Bestand: " + getraenk2.bestand);
-        // System.out.println("Informationen getraenk3: ");
-        // System.out.println("Name: " + getraenk3.name + ", " + "Preis: " + getraenk3.preis + ", " + "Bestand: " + getraenk3.bestand);
-        // System.out.println("Informationen snack1: ");
-        // System.out.println("Name: " + snack1.name + ", " + "Preis: " + snack1.preis + ", " + "Bestand: " + snack1.bestand + ", " + "Lagertemperatur: " + snack1.lagertemperatur);
+        
+        System.out.println();
+        
+        // Snack Liste ausgeben
+        // for (Snack s : snackListe)
+        // {
+        //     System.out.print("Artikel: " + s.getName() + "\n");
+        // }
 
         System.out.println();
-
         
         boolean menu = true;
         
         do 
         {
-            System.out.println("\nWas wollen Sie machen (1 = Verkauf, 2 = Bestandserhöhung, 3 = beenden)?");
+            System.out.println("\nWas wollen Sie machen (0 = Bestand anzeigen, 1 = Verkauf, 2 = Bestandserhöhung, 3 = beenden)?");
+            System.out.print("> ");
             int choice = sc.nextInt();
+            if (choice == 0)
+            {
+                System.out.println("Getraenk: " + getraenk1.getName() + "\n" + "Bestand: " + getraenk1.getBestand());
+                System.out.println("---------------");
+                System.out.println("Getraenk: " + getraenk2.getName() + "\n" + "Bestand: " + getraenk2.getBestand());
+                System.out.println("---------------");
+                System.out.println("Getraenk: " + getraenk3.getName() + "\n" + "Bestand: " + getraenk3.getBestand());
+            }
             if (choice == 1)
             {
-                System.out.println("Verkauf");
+                System.out.println("---------------");
+                System.out.println("# Verkauf #");
+                System.out.println("---------------");
                 System.out.println("Welches Getränk soll verkauft werden?\n");
                 
                 // Liste der Getränke drucken
                 for (Getraenk g : getraenkeListe) {
                     System.out.println("[" + (int)g.getId() + "] " + g.getName());
                 }
+
                 System.out.println("---------------");
+                System.out.print("> ");
                 int getraenkeChoice = sc.nextInt();
                 // Auswahl durchführen
                 if (getraenkeChoice == 1)
                 {
                     System.out.println("Aktueller Bestand: " + getraenk1.getBestand() + "\n");
-                    System.out.println("Verkaufsmenge: ");
+                    System.out.print("Verkaufsmenge: ");
                     int verkaufsChoice = sc.nextInt();
                     getraenk1.verkaufen(verkaufsChoice);
+                    System.out.println(getraenk1.kassenzettelDrucken(verkaufsChoice));
                     System.out.println("Neuer Bestand: " + getraenk1.getBestand());
                 }
-                // Verkaufen
+                if (getraenkeChoice == 2)
+                {
+                    System.out.println("Aktueller Bestand: " + getraenk2.getBestand() + "\n");
+                    System.out.print("Verkaufsmenge: ");
+                    int verkaufsChoice = sc.nextInt();
+                    getraenk2.verkaufen(verkaufsChoice);
+                    System.out.println("Neuer Bestand: " + getraenk2.getBestand());
+                }
+                if (getraenkeChoice == 3)
+                {
+                    System.out.println("Aktueller Bestand: " + getraenk3.getBestand() + "\n");
+                    System.out.print("Verkaufsmenge: ");
+                    int verkaufsChoice = sc.nextInt();
+                    getraenk3.verkaufen(verkaufsChoice);
+                    System.out.println("Neuer Bestand: " + getraenk3.getBestand());
+                }
+            }
+            if (choice == 2)
+            {
+                System.out.println("---------------");
+                System.out.println("# Bestand erhoehen #");
+                System.out.println("---------------");
+                System.out.println("Von welchem Getraenk soll der Bestand erhoeht werden?\n");
+
+                // Liste der Getränke drucken
+                for (Getraenk g : getraenkeListe) {
+                    System.out.println("[" + (int)g.getId() + "] " + g.getName());
+                }
+
+                System.out.println("---------------");
+                System.out.print("> ");
+                int getraenkeChoice = sc.nextInt();
+
+                // Auswahl durchführen
+                if (getraenkeChoice == 1)
+                {
+                    System.out.println("Aktueller Bestand: " + getraenk1.getBestand() + "\n");
+                    System.out.print("Bestand erhoehen: ");
+                    int bestandChoice = sc.nextInt();
+                    getraenk1.bestandErhoehen(bestandChoice);
+                    System.out.println("Neuer Bestand: " + getraenk1.getBestand());
+                }
+                if (getraenkeChoice == 2)
+                {
+                    System.out.println("Aktueller Bestand: " + getraenk2.getBestand() + "\n");
+                    System.out.print("Bestand erhoehen: ");
+                    int bestandChoice = sc.nextInt();
+                    getraenk2.bestandErhoehen(bestandChoice);
+                    System.out.println("Neuer Bestand: " + getraenk2.getBestand());
+                }
+                if (getraenkeChoice == 3)
+                {
+                    System.out.println("Aktueller Bestand: " + getraenk3.getBestand() + "\n");
+                    System.out.print("Bestand erhoehen: ");
+                    int bestandChoice = sc.nextInt();
+                    getraenk3.bestandErhoehen(bestandChoice);
+                    System.out.println("Neuer Bestand: " + getraenk3.getBestand());
+                }
             }
             if (choice == 3)
             {
@@ -86,18 +167,104 @@ public class Getraenkeverwaltung {
         }
         while (menu);
  
-
-
-
-
-        // Bestand erhoehen
-        // getraenk1.bestandErhoehen(menge);
-        // System.out.println("Bestand erhoeht.");
-        // System.out.println("Neuer Bestand: " + getraenk1.bestand);
-        // System.out.println(getraenk1.verkaufen(6));
-        // System.out.println("Neuer Bestand: " + getraenk1.bestand);
-
         // Scanner schließen
         sc.close();
+        // end legacy code
+        */ 
     }
+
+    public void buildUi() {
+        // create the main window
+        Frame fr = new Frame();
+        fr.setLayout(new BorderLayout());
+
+        // define colors
+        Color headerColor = new Color(38, 70, 83);
+        Color contentColor = new Color(42, 157, 143);
+       
+        // create navigation pane at the top
+        JPanel navigation = new JPanel();
+        navigation.setBackground(headerColor);
+        navigation.setLayout(new GridLayout(1,4));
+        navigation.setPreferredSize(new Dimension(800,50));
+
+        // create content pane in the middle
+        JPanel content = new JPanel();
+        content.setBackground(contentColor);
+        content.setPreferredSize(new Dimension(800, 500));
+        content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
+        
+        // create footer pane at the bottom
+        JPanel footer = new JPanel();
+        footer.setBackground(headerColor);
+        footer.setLayout(new GridLayout(1,1));
+        footer.setPreferredSize(new Dimension(800, 50));
+        footer.setLayout(new BorderLayout());
+
+        // show impressum in the footer pane
+        JLabel impressum = new JLabel(Firma.impressum());
+        impressum.setHorizontalAlignment(SwingConstants.CENTER); // Platziert den Text mittig
+        impressum.setForeground(Color.white);
+        
+        // create the buttons
+        Button btnBestand = new Button("Bestand anzeigen");
+        Button btnVerkauf = new Button("Verkaufen");
+        Button btnErhoehen = new Button("Bestand erhoehen");
+        Button btnExit = new Button("Exit");
+
+        // display beverages on button click
+        btnBestand.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String column [] = {"Artikelnummer", "Artikel", "Bestand"};
+                Object data [][] = {
+                    {getraenk1.getId(), getraenk1.getName(), getraenk1.getBestand()},
+                    {getraenk2.getId(), getraenk2.getName(), getraenk2.getBestand()},
+                    {getraenk3.getId(), getraenk3.getName(), getraenk3.getBestand()}
+                };
+                JTable table = new JTable(data, column);
+                JScrollPane sp = new JScrollPane(table);
+                content.removeAll();
+                content.revalidate();
+                content.repaint();
+                content.add(sp);    
+            }
+        });
+
+        // open new sale window
+        btnVerkauf.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new Verkaufen();
+            }
+        });
+
+        btnErhoehen.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new BestandErhoehen();
+            }
+        });
+
+        // close the program
+        btnExit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        // add the buttons to the navigation pane
+        navigation.add(btnBestand);
+        navigation.add(btnVerkauf);
+        navigation.add(btnErhoehen);
+        navigation.add(btnExit);
+
+        // add the impressum to the footer pane
+        footer.add(impressum, BorderLayout.CENTER);
+
+        // add the three main panels to the window
+        fr.add(navigation, BorderLayout.NORTH);
+        fr.add(content, BorderLayout.CENTER);
+        fr.add(footer, BorderLayout.SOUTH);
+        fr.pack();
+    }
+
+
 }

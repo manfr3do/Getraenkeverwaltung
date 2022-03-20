@@ -55,11 +55,14 @@ public class Artikel {
         if (bestand < menge) 
         {
             System.out.println("Leider uebersteigt diese Menge unseren Bestand.");
-        } else if (bestand == menge)
+        } 
+        else if (bestand == menge)
         {
             bestand = bestand - menge;
             ausgabetext = kassenzettelDrucken(menge) + "Nun ist " + this.getName() + " alle...";
-        } else {
+        } 
+        else 
+        {
             bestand = bestand - menge;
             ausgabetext = kassenzettelDrucken(menge);
         }
@@ -72,4 +75,5 @@ public class Artikel {
         kassenzettel = "Name: " + name + "\nVerkaufsmenge: " + menge + "\nPreis in EUR: " + preis + "\nGesamtpreis: " + gesamtpreis + "\n";
         return kassenzettel;
     }
+
 }
