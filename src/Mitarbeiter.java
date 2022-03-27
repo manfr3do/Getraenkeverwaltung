@@ -16,4 +16,16 @@ public class Mitarbeiter {
     public void setGehalt(double gehalt) {
         this.gehalt = gehalt;
     }
+    public int getId() {
+        return id;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getAdresse() {
+        return adresse;
+    }
+    public double getGehalt() {
+        return gehalt;
+    }
 }

@@ -5,18 +5,22 @@ import javax.swing.*;
 
 public class Getraenkeverwaltung extends Firma {
     
-    public static Getraenk getraenk1 = new Getraenk(1, "Pepsi Maxx Original", 0.99, 500);
+    public static Artikel getraenk1 = new Getraenk(1, "Pepsi Maxx Original", 0.99, 500);
     public static Getraenk getraenk2 = new Getraenk(2, "Pepsi Maxx Lemon", 2.00, 100);
     public static Getraenk getraenk3 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
-    public static Getraenk getraenk4 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
-    public static Getraenk getraenk5 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
-    public static Getraenk getraenk6 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
-    public static Getraenk getraenk7 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
-    public static Getraenk getraenk8 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
-    public static Getraenk getraenk9 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
-    public static Getraenk getraenk10 = new Getraenk(3, "Pepsi Maxx Cherry", 1.99, 200);
+    public static Getraenk getraenk4 = new Getraenk(3, "Pepsi Maxx Waldmeister", 1.99, 200);
+    public static Getraenk getraenk5 = new Getraenk(3, "Pepsi Maxx Banane", 1.99, 200);
+    public static Getraenk getraenk6 = new Getraenk(3, "Pepsi Maxx Orange", 1.99, 200);
+    public static Getraenk getraenk7 = new Getraenk(3, "Pepsi Maxx Ultra", 1.99, 200);
+    public static Getraenk getraenk8 = new Getraenk(3, "Pepsi Maxx Mango", 1.99, 200);
+    public static Getraenk getraenk9 = new Getraenk(3, "Pepsi Maxx Mezzo", 1.99, 200);
+    public static Getraenk getraenk10 = new Getraenk(3, "Pepsi Maxx Wasser", 1.99, 200);
     public static void main(String[] args) throws Exception {
         new Getraenkeverwaltung().buildUi();
+
+        Mitarbeiter m1 = new Mitarbeiter();
+        m1.setName("Chris P. Bacon");
+
 
         /*
         // Legacy code (before GUI)
@@ -185,7 +189,7 @@ public class Getraenkeverwaltung extends Firma {
         // create navigation pane at the top
         JPanel navigation = new JPanel();
         navigation.setBackground(headerColor);
-        navigation.setLayout(new GridLayout(1,4));
+        navigation.setLayout(new GridLayout(2,4));
         navigation.setPreferredSize(new Dimension(800,50));
 
         // create content pane in the middle
@@ -193,6 +197,8 @@ public class Getraenkeverwaltung extends Firma {
         content.setBackground(contentColor);
         content.setPreferredSize(new Dimension(800, 500));
         content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
+
+
         
         // create footer pane at the bottom
         JPanel footer = new JPanel();
@@ -211,6 +217,8 @@ public class Getraenkeverwaltung extends Firma {
         Button btnVerkauf = new Button("Verkaufen");
         Button btnErhoehen = new Button("Bestand erhoehen");
         Button btnExit = new Button("Exit");
+        Button btnClear = new Button("clear");
+        Button btnMitarbeiter = new Button("Mitarbeiter");
 
         // display beverages on button click
         btnBestand.addActionListener(new ActionListener() {
@@ -219,7 +227,14 @@ public class Getraenkeverwaltung extends Firma {
                 Object data [][] = {
                     {getraenk1.getId(), getraenk1.getName(), getraenk1.getBestand()},
                     {getraenk2.getId(), getraenk2.getName(), getraenk2.getBestand()},
-                    {getraenk3.getId(), getraenk3.getName(), getraenk3.getBestand()}
+                    {getraenk3.getId(), getraenk3.getName(), getraenk3.getBestand()},
+                    {getraenk4.getId(), getraenk4.getName(), getraenk4.getBestand()},
+                    {getraenk5.getId(), getraenk5.getName(), getraenk5.getBestand()},
+                    {getraenk6.getId(), getraenk6.getName(), getraenk6.getBestand()},
+                    {getraenk7.getId(), getraenk7.getName(), getraenk7.getBestand()},
+                    {getraenk8.getId(), getraenk8.getName(), getraenk8.getBestand()},
+                    {getraenk9.getId(), getraenk9.getName(), getraenk9.getBestand()},
+                    {getraenk10.getId(), getraenk10.getName(), getraenk10.getBestand()}
                 };
                 JTable table = new JTable(data, column);
                 JScrollPane sp = new JScrollPane(table);
@@ -250,11 +265,22 @@ public class Getraenkeverwaltung extends Firma {
             }
         });
 
+        btnClear.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                content.removeAll();
+                content.revalidate();
+                content.repaint();
+            }
+        });
+
         // add the buttons to the navigation pane
         navigation.add(btnBestand);
         navigation.add(btnVerkauf);
         navigation.add(btnErhoehen);
+        navigation.add(btnMitarbeiter);
+        navigation.add(btnClear);
         navigation.add(btnExit);
+
 
         // add the impressum to the footer pane
         footer.add(impressum, BorderLayout.CENTER);

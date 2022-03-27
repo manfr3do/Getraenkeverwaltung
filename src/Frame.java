@@ -5,7 +5,7 @@ public class Frame extends JFrame {
         this.setTitle("Getraenkeverwaltung");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.setSize(800,600);
+        this.setSize(800,800);
         this.setVisible(true);
     }
 }
