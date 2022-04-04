@@ -1,3 +1,4 @@
+# Auftrag:
 In dieser Abschlussaufgabe soll die Barverwaltung vervollständigt und optimiert werden. 
 
     Ergänzt zunächst alle bisher nicht implementierten Funktionalitäten aus den einzelnen Kapiteln.
@@ -42,4 +43,9 @@ Folgende technische Anforderungen sind gegeben:
 * Adapterklassen
 * ~~Sicherung und Versionierung des Projekts mit GiT~~
 * automatisierte Unit-Tests
-* Anbindung einer Datenbank
+* Anbindung einer Datenbank  
+
+# Work in progress: 
+- Mitarbeiter vollständig implementieren 
+- Anbindung an Datenbank
+- Design overhaul
