@@ -1,5 +1,5 @@
 public class Snack extends Artikel {
-    double lagertemperatur;
+    private double lagertemperatur;
     public Snack() {
         super();
     }

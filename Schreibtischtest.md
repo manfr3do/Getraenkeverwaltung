@@ -8,16 +8,19 @@ for (Getraenk g : getraenkeListe)
 }
 ```
 **Ausgabe:**  
-Pepsi Maxx Original  
-Pepsi Maxx Lemon  
-Pepsi Maxx Cherry  
-Pepsi Maxx Waldmeister  
-Pepsi Maxx Banane  
-Pepsi Maxx Orange  
-Pepsi Maxx Ultra  
-Pepsi Maxx Mango  
-Pepsi Maxx Mezzo  
-Pepsi Maxx Wasser  
+| INDEX         |AUSGABE                |
+|:-------------:|-----------------------|
+|1              |Pepsi Maxx Original    |
+|2              |Pepsi Maxx Lemon       |
+|3              |Pepsi Maxx Cherry      |
+|4              |Pepsi Maxx Waldmeister |
+|5              |Pepsi Maxx Banane      |
+|6              |Pepsi Maxx Orange      |
+|7              |Pepsi Maxx Ultra       |
+|8              |Pepsi Maxx Mango       |
+|9              |Pepsi Maxx Mezzo       |
+|10             |Pepsi Maxx Wasser      |
+
 
 ### Ziel: Snackliste ausgeben
 ```
@@ -27,6 +30,11 @@ for (Snack s : snackListe)
 }
 ```
 **Ausgabe:**  
-Knoppers  
-Pickup  
-Dextro Energy  
+  
+  
+ 
+| INDEX         |AUSGABE                |
+|:-------------:|-----------------------|
+|1              |Knoppers               |
+|2              |Pickup                 |
+|3              |Dextro Energy          |
